@@ -1,4 +1,0 @@
-<servlet-mapping>
-    <servlet-name>ViewHomePage</servlet-name>
-    <url-pattern>/hello</url-pattern>
-</servlet-mapping>
