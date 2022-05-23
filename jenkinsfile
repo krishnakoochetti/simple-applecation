@@ -3,18 +3,9 @@ pipeline{
 		stages{
 			stage('build'){
 				steps{
-					sh: "mvn clean"
+					sh 'clean compile package'
 				}
 			}
-			stage('compile'){
-				steps{
-					sh: "mvn compile"
-				}
-			}
-			stage('package'){
-				steps{
-					sh: "mvn package"
-				}
-			}
+			
 		}
 	}
