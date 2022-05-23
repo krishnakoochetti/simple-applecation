@@ -20,8 +20,5 @@ public class HelloController {
         return "devops";
     }
 
-    @WebServlet("/hello")
-    public class ViewHomepage extends HttpServlet{
-
-    }
+   
 }
