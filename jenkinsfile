@@ -16,13 +16,6 @@ pipeline{
 					sh 'mvn package'
 				}
 			}
-			stage('deploying'){
-				steps{
-					sh 'mvn cargo:undeploy'
-					sh 'mvn clean'
-					sh 'mvn install'
-					sh 'mvn cargo:deploy'
-				}
-			}
+			
 		}
 	}
