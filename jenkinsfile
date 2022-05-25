@@ -9,7 +9,7 @@ pipeline {
     stage ('Deploy') {
       steps {
         script {
-          deploy adapters: [tomcat9(credentialsId: 'tomcat2', path: '', url: 'http://localhost:8084/')], contextPath: '/jenkins-app', onFailure: false, war: 'webapp/target/*.war' 
+          deploy adapters: [tomcat9(credentialsId: 'tomcat2', path: '/usr/local/tomcat/webapps', url: 'http://localhost:8084/')], contextPath: '/jenkins-app', onFailure: false, war: 'webapp/target/*.war' 
         }
       }
     }
