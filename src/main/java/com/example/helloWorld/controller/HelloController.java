@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServlet;
 @Controller
 public class HelloController {
 
-    @RequestMapping("/JenkinsApp")
+    @RequestMapping("/jenkins-app")
     public String Helloworld(){
         return "hello";
     }
