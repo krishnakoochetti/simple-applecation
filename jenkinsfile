@@ -6,11 +6,12 @@ pipeline {
         sh 'mvn clean compile package'
       }
     }
-    stage ('Deploy') {
+    stage ('login') {
       steps {
-        script {
-          deploy adapters: [tomcat9(credentialsId: 'tomcat2', path: '/usr/local/tomcat/webapps', url: 'http://localhost:8084/')], contextPath: '/jenkins-app', onFailure: false, war: 'webapp/target/*.war' 
-        }
+        sh 'docker exec -it 5f95031cf797 bash
+        sh 'cd webapps'
+        sh 'ls'
+  
       }
     }
   }
