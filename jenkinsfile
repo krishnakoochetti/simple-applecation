@@ -1,21 +1,20 @@
-pipeline{
-	agent any
-		stages{
-			stage('build'){
-				steps{
-					sh 'mvn clean'
-				}
-			}
-			stage('compile'){
-				steps{
-					sh 'mvn compile'
-				}
-			}
-			stage('package'){
-				steps{
-					sh 'mvn package'
-				}
-			}
-			
-		}
-	}
+pipeline {
+  agent any
+  tools {
+    maven 'maven-3.8.5' 
+  }
+  stages {
+    stage ('Build') {
+      steps {
+        sh 'mvn clean compile package'
+      }
+    }
+    stage ('Deploy') {
+      steps {
+        script {
+          deploy adapters: [tomcat9(credentialsId: 'tomcat2', path: '', url: 'http://localhost:8084/')], contextPath: '/jenkins-app', onFailure: false, war: 'webapp/target/*.war' 
+        }
+      }
+    }
+  }
+}
