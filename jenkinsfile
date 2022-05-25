@@ -8,6 +8,8 @@ pipeline {
     }
     stage ('login') {
       steps {
+        sh 'sudo su'
+        sh 'echo 3010'
         sh 'docker exec -it 5f95031cf797 bash'
         sh 'cd webapps'
         sh 'ls'
