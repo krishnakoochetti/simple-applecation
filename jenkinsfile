@@ -11,7 +11,7 @@ pipeline {
         sh 'docker login --username 9959087127 --password-stdin Krishh@@ri@@3010'
         sh 'docker exec -it 5f95031cf797 bash'
         sh 'cd webapps'
-        sh 'ls'
+        sh 'ls -l'
   
       }
     }
