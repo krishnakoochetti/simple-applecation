@@ -8,9 +8,11 @@ pipeline {
     }
     stage ('login') {
       steps {
-        sh 'docker exec -it 5f95031cf797 bash'
-        sh 'cd webapps'
-        sh 'ls -l'
+        withCredentials([usernamePassword(credentialsId: 'tomcat2', usernameVariable: 'USER', passwordVariable: 'PASSWORD')])
+			{
+				sh 'docker login --username $USER --password $PASSWORD'
+        sh 'echo login successful'
+			}
   
       }
     }
