@@ -6,6 +6,13 @@ pipeline {
         sh 'mvn clean compile package'
       }
     }
+    
+    stage ('pulling') {
+      steps {
+        sh 'docker pull 9959087127/spring-docker:latest'
+      }
+    }
+    
     stage ('login') {
       steps {
         withCredentials([usernamePassword(credentialsId: 'docker', usernameVariable: 'USER', passwordVariable: 'PASSWORD')])
