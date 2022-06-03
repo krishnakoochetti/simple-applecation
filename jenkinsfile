@@ -8,7 +8,7 @@ pipeline {
     }
     stage ('login') {
       steps {
-        withCredentials([usernamePassword(credentialsId: 'tomcat2', usernameVariable: 'USER', passwordVariable: 'PASSWORD')])
+        withCredentials([usernamePassword(credentialsId: 'docker', usernameVariable: 'USER', passwordVariable: 'PASSWORD')])
 			{
 				sh 'docker login --username $USER --password $PASSWORD'
         sh 'echo login successful'
