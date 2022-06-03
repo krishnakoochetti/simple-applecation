@@ -8,9 +8,9 @@ pipeline {
     } 
     stage ('login') {
       steps {
-        withCredentials([usernamePassword(credentialsId: 'docker', usernameVariable: 'USER', passwordVariable: 'PASSWORD')])
-			{
-				sh 'docker login --SSH username $USER --private key $PASSWORD'
+      
+      	sh 'docker-compose up -d'
+        
         sh 'echo login successful'
 			}
   
