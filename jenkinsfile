@@ -18,12 +18,4 @@ pipeline {
     }
   }
 }
-stage ('pulling') {
-11
-      steps {
-12
-        sh 'docker pull 9959087127/spring-docker:latest'
-13
-      }
-14
-    }
+
