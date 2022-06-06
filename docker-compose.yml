@@ -1,0 +1,4 @@
+version: '3'
+  services:
+    docker:
+      image: '9959087127/spring-docker:tagname'
